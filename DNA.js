@@ -9,7 +9,6 @@ function DNA(genes){
       this.genes[i].setMag(0.02);
     }
   }
-
   this.crossover = function(partner){
     var newdna = [];
     var mid = floor(random(this.genes.length));

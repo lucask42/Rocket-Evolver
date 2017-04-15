@@ -2,7 +2,6 @@ function Population(){
   this.rockets = [];
   this.popsize = 25;
   this.matingpool = [];
-
   for (var i = 0; i < this.popsize; i++){
     this.rockets[i] = new Rocket();
   }
@@ -15,7 +14,6 @@ function Population(){
       }
     }
     createP(maxfit);
-
     for (var i = 0; i < this.popsize; i++){
       this.rockets[i].fitness /= maxfit;
     }
@@ -27,7 +25,6 @@ function Population(){
       }
     }
   }
-
   this.selection = function(){
     var newRockets = [];
     for (var i = 0; i < this.rockets.length; i++) {
@@ -38,7 +35,6 @@ function Population(){
     }
     this.rockets = newRockets;
   }
-
   this.run = function(){
     for (var i = 0; i < this.popsize; i++){
       this.rockets[i].update();
