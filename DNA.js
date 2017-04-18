@@ -23,7 +23,6 @@ function DNA(genes){
     //newdna[mutationsite] = p5.Vector.random2D();
     //newdna[mutationsite].setMag(0.02)
     newdna[mutationsite].rotate(random(1));
-
     return new DNA(newdna);
   }
 }

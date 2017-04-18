@@ -3,20 +3,22 @@ function Population(){
   this.popsize = 25;
   this.matingpool = [];
   for (var i = 0; i < this.popsize; i++){
-    this.rockets[i] = new Rocket();
+    var rocket = new Rocket();
+    this.rockets[i] = rocket;
   }
   this.evaluate = function(){
     var maxfit = 0;
     for (var i = 0; i < this.popsize; i++){
-      this.rockets[i].calcFitness();
+      this.rockets[i].calcFitness
       if (this.rockets[i].fitness > maxfit) {
         maxfit = this.rockets[i].fitness;
       }
     }
-    createP(maxfit);
+    this.createP = function(maxfit){
     for (var i = 0; i < this.popsize; i++){
       this.rockets[i].fitness /= maxfit;
     }
+  }
     this.matingpool = [];
     for (var i = 0; i < this.popsize; i++){
       var n = this.rockets[i].fitness * 100;
@@ -37,8 +39,8 @@ function Population(){
   }
   this.run = function(){
     for (var i = 0; i < this.popsize; i++){
-      this.rockets[i].update();
-      this.rockets[i].show();
+      this.rockets[i].update;
+      this.rockets[i].show
     }
   }
 }
