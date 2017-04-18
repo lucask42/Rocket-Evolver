@@ -1,19 +1,19 @@
-function DNA(){
+function DNA(genes){
   this.genome = [];
-}
-
-DNA.prototype.writeGenes = function(genes){
   if (genes){
     this.genome = genes;
   } else{
-    this.genome = [];
-    this.genome[0] = p5.Vector(0,1);
-
+    this.genome[0] = p5.Vector.random2D();
     for (var i = 1; i < lifespan; i ++){
-      this.genome[i] = this.genome[i-1].rotate(random(1));
+      this.genome[i] = p5.Vector.random2D();
+      //this.genome[i] = this.genome[i - 1].random2D();
       this.genome[i].setMag(0.02);
     }
   }
+}
+
+DNA.prototype.writeGenes = function(genes) {
+
 }
 
 //DNA.protoype.mutation = function(){

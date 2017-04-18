@@ -15,7 +15,6 @@ function Rocket(dna){
   } else {
     // write original dna
   this.dna = new DNA();
-
   }
 
   this.fitness = 0;
@@ -32,7 +31,7 @@ Rocket.prototype.applyForce = function(force) {
 
 Rocket.prototype.calcFitness = function() {
   var d = dist(this.pos.x, this.pos.y, target.x, target.y);
-  this.fitness = 1 / d; //map(d, 0, width, width, 0);
+  this.fitness = map(d, 0, width, width, 0);
   if (this.completed){
     //this.fitness *= 10;
   }

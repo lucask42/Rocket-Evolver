@@ -2,14 +2,16 @@ function Population(){
   this.rockets = [];
   this.popsize = 25;
   this.matingpool = [];
+  this.maxfit = 10;
 }
 
 Population.prototype.createInitialPop = function(){
+  // add rockets to Population
   for (let i = 0; i < this.popsize; i++){
     let rocket = new Rocket();
     this.rockets[i] = rocket;
   }
-  console.log(this.matingpool);
+  // those rockets need dna OK they get it
 }
 
 Population.prototype.breedRockets = function(){
@@ -22,15 +24,14 @@ Population.prototype.breedRockets = function(){
   console.log(this.matingpool);
 }
 Population.prototype.evaluate = function(){
-    let maxfit = 0;
     for (let i = 0; i < this.popsize; i++){
       this.rockets[i].calcFitness
-      if (this.rockets[i].fitness > maxfit) {
-        maxfit = this.rockets[i].fitness;
+      if (this.rockets[i].fitness > this.maxfit) {
+        this.maxfit = this.rockets[i].fitness;
       }
     }
   }
-Population.prototype.createP = function(maxfit){
+Population.prototype.scaleFitness = function(maxfit){
   for (var i = 0; i < this.popsize; i++){
     this.rockets[i].fitness /= maxfit;
   }
