@@ -3,13 +3,7 @@
 // //
 //
 
-// function Rocket(){
-//   this.type = "flier";
-//   this.prototype = Craft();
-// }
-function Rocket(){
-  this.init = function (dna) {
-  this.type = rocket
+function Rocket(dna){
   this.pos = createVector(width/2, height);
   this.vel = createVector();
   this.acc = createVector();
@@ -20,7 +14,6 @@ function Rocket(){
   this.dna = new DNA();
   }
   this.fitness = 0;
-  }
 }
 
 Rocket.prototype.boost = function () {

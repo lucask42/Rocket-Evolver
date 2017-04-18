@@ -4,6 +4,7 @@ function DNA(genes){
   } else{
     this.genes = [];
     this.genes[0] = p5.Vector.random2D();
+
     for (var i = 1; i < lifespan; i ++){
       this.genes[i] = this.genes[i-1].rotate(random(1));
       this.genes[i].setMag(0.02);
