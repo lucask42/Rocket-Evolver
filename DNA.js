@@ -1,24 +1,34 @@
-function DNA(genes){
+function DNA(){
+  this.genome = [];
+}
+
+DNA.prototype.writeGenes = function(genes){
   if (genes){
-    this.genes = genes;
+    this.genome = genes;
   } else{
-    this.genes = [];
-    this.genes[0] = p5.Vector.random2D();
+    this.genome = [];
+    this.genome[0] = p5.Vector(0,1);
 
     for (var i = 1; i < lifespan; i ++){
-      this.genes[i] = this.genes[i-1].rotate(random(1));
-      this.genes[i].setMag(0.02);
+      this.genome[i] = this.genome[i-1].rotate(random(1));
+      this.genome[i].setMag(0.02);
     }
   }
-  this.crossover = function(partner){
+}
+
+//DNA.protoype.mutation = function(){
+
+//}
+
+DNA.prototype.crossover = function(partner){
     var newdna = [];
-    var mid = floor(random(this.genes.length));
-    var mutationsite = floor(random(this.genes.length));
-    for (var i = 0; i < this.genes.length; i++){
+    var mid = floor(random(this.genome.length));
+    var mutationsite = floor(random(this.genome.length));
+    for (var i = 0; i < this.genome.length; i++){
       if (i > mid){
-        newdna[i] = this.genes[i];
+        newdna[i] = this.genome[i];
       } else{
-        newdna[i] = partner.genes[i];
+        newdna[i] = partner.genome[i];
       }
     }
     //newdna[mutationsite] = p5.Vector.random2D();
@@ -26,4 +36,3 @@ function DNA(genes){
     newdna[mutationsite].rotate(random(1));
     return new DNA(newdna);
   }
-}

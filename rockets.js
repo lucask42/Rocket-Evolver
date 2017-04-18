@@ -9,10 +9,15 @@ function Rocket(dna){
   this.acc = createVector();
   this.completed = false;
   if (dna) {
+    // update genes
     this.dna = dna;
+    this.dna.writeGenes();
   } else {
+    // write original dna
   this.dna = new DNA();
+
   }
+
   this.fitness = 0;
 }
 
@@ -21,6 +26,7 @@ Rocket.prototype.boost = function () {
 }
 
 Rocket.prototype.applyForce = function(force) {
+  console.log('force applied')
   this.acc.add(force);
 }
 
@@ -33,6 +39,7 @@ Rocket.prototype.calcFitness = function() {
 }
 
 Rocket.prototype.update = function(){
+  console.log("updating")
   var d = dist(this.pos.x, this.pos.y, target.x, target.y);
   if (d < 10){
     this.completed = true
@@ -51,6 +58,6 @@ Rocket.prototype.show = function(){
   translate(this.pos.x, this.pos.y)
   rotate(this.vel.heading());
   rectMode(CENTER);
-  rect(0,0, 5, 2);
+  rect(0,0, 10, 50);
   pop();
 }

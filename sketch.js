@@ -21,14 +21,14 @@ function setup(){
 function draw(){
   background(0);
   population.run();
+  console.log("running")
   count++;
-  console.log(rocket.dna)
-  if (count == lifespan) {
-    population.evaluate();
-    population.selection();
-    population = new Population();
-    count = 0;
-  }
+  // if (count == lifespan) {
+  //   population.evaluate();
+  //   population.selection();
+  //   population = new Population();
+  //   count = 0;
+  // }
   fill(255);
   ellipse(target.x, target.y, 16, 16);
   rect(100, 150, 200, 10);
